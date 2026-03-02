@@ -65,6 +65,7 @@ protected:
 	float CoyoteTimeDuration = 0.2f; // coyote time jump limit
 	float TimeSinceLeftGround = 0.0f;
 	bool bCanUseCoyoteTime = false;
+	bool updateCoyoteTime = false;
 			
 
 protected:

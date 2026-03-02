@@ -135,6 +135,7 @@ void ACoyoteTimeCharacter::CoyoteJump()
 	{
 		// Reset coyote time
 		bCanUseCoyoteTime = false;
+		updateCoyoteTime = false;
 		TimeSinceLeftGround = 0.0f;
 
 		// Perform the jump
@@ -149,6 +150,7 @@ void ACoyoteTimeCharacter::Landed(const FHitResult& Hit)
 	// Reset coyote time variables
 	TimeSinceLeftGround = 0.0f;
 	bCanUseCoyoteTime = false;
+	updateCoyoteTime = true;
 }
 
 void ACoyoteTimeCharacter::UpdateCoyoteTime(float DeltaTime)
@@ -176,5 +178,9 @@ void ACoyoteTimeCharacter::UpdateCoyoteTime(float DeltaTime)
 
 void ACoyoteTimeCharacter::Tick(float DeltaTime)
 {
-	UpdateCoyoteTime(DeltaTime);
+	if (updateCoyoteTime)
+	{
+		UpdateCoyoteTime(DeltaTime);
+	}
+	
 }
